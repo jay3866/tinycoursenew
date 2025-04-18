@@ -26,7 +26,9 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { ArrowRight, Brain, Check, Clock, Lightbulb, Play, Share, ShoppingCart, Star, X, Zap } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -63,6 +65,7 @@ type ProfileItem = {
 };
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0)
   const [profileItems, setProfileItems] = useState<ProfileItem[]>([])
 
@@ -211,10 +214,68 @@ export default function Home() {
             <Button variant="outline" className="hidden sm:flex" asChild>
               <Link href="https://members.tinyvisualcourses.com/">Log in</Link>
             </Button>
-            <Button asChild><Link href="https://checkout.tinyvisualcourses.com">Get Started</Link></Button>
+            <Button asChild className="hidden sm:flex"><Link href="https://checkout.tinyvisualcourses.com">Get Started</Link></Button>
+            
+            {/* Mobile Menu Button */}
+            <div className="sm:hidden">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  {mobileMenuOpen ? (
+                    <>
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </>
+                  ) : (
+                    <>
+                      <line x1="4" y1="12" x2="20" y2="12" />
+                      <line x1="4" y1="6" x2="20" y2="6" />
+                      <line x1="4" y1="18" x2="20" y2="18" />
+                    </>
+                  )}
+                </svg>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-white sm:hidden">
+          <div className="container py-4 flex flex-col space-y-4">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <Image src="/TVO-icon-5498596.png" alt="Tiny Visual Course Logo" width={32} height={32} className="h-8 w-auto" />
+                <span className="text-xl font-bold">Tiny Visual Courses</span>
+              </div>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close mobile menu"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </Button>
+            </div>
+            <div className="flex flex-col space-y-4 pt-4">
+              <Button asChild variant="outline" className="w-full justify-center">
+                <Link href="https://members.tinyvisualcourses.com/" onClick={() => setMobileMenuOpen(false)}>Log in</Link>
+              </Button>
+              <Button asChild className="w-full justify-center">
+                <Link href="https://checkout.tinyvisualcourses.com" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <main className="flex-1">
         {/* Hero Section */}
