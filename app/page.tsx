@@ -208,8 +208,8 @@ export default function Home() {
             <span className="text-xl font-bold">Tiny Visual Courses</span>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="outline" className="hidden sm:flex">
-              Log in
+            <Button variant="outline" className="hidden sm:flex" asChild>
+              <Link href="https://members.tinyvisualcourses.com/">Log in</Link>
             </Button>
             <Button asChild><Link href="https://checkout.tinyvisualcourses.com">Get Started</Link></Button>
           </div>
@@ -1260,6 +1260,8 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <Image src="/TVO-icon-5498596.png" alt="Tiny Visual Course Logo" width={24} height={24} className="h-6 w-auto" />
               <span className="text-sm font-medium">Tiny Visual Courses</span>
+              <span className="text-slate-400 mx-2">|</span>
+              <Link href="https://members.tinyvisualcourses.com/" className="text-sm hover:text-primary transition-colors">Log in</Link>
             </div>
             
             <div className="text-center text-sm text-slate-700 mb-2">
