@@ -212,7 +212,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <Button variant="outline" className="hidden sm:flex" asChild>
-              <Link href="https://member.tinyvisualcourses.com/">Log in</Link>
+              <Link href="https://member.tinyvisualcourses.com/users/sign_in">Log in</Link>
             </Button>
             <Button asChild className="hidden sm:flex"><Link href="https://checkout.tinyvisualcourses.com" onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}>Get Started</Link></Button>
             
@@ -267,7 +267,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col space-y-4 pt-4">
               <Button asChild variant="outline" className="w-full justify-center">
-                <Link href="https://member.tinyvisualcourses.com/" onClick={() => setMobileMenuOpen(false)}>Log in</Link>
+                <Link href="https://member.tinyvisualcourses.com/users/sign_in" onClick={() => setMobileMenuOpen(false)}>Log in</Link>
               </Button>
               <Button asChild className="w-full justify-center">
                 <Link href="https://checkout.tinyvisualcourses.com" onClick={() => { setMobileMenuOpen(false); if (typeof window !== 'undefined' && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}>Get Started</Link>
@@ -1322,7 +1322,7 @@ export default function Home() {
               <Image src="/TVO-icon-5498596.png" alt="Tiny Visual Course Logo" width={24} height={24} className="h-6 w-auto" />
               <span className="text-sm font-medium">Tiny Visual Courses</span>
               <span className="text-slate-400 mx-2">|</span>
-              <Link href="https://member.tinyvisualcourses.com/" className="text-sm hover:text-primary transition-colors">Log in</Link>
+              <Link href="https://member.tinyvisualcourses.com/users/sign_in" className="text-sm hover:text-primary transition-colors">Log in</Link>
             </div>
             
             <div className="text-center text-sm text-slate-700 mb-2">
