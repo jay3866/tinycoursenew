@@ -29,7 +29,7 @@ export default function FloatingCTA() {
       }`}
     >
       <Button size="lg" className="shadow-lg group" asChild>
-        <Link href="https://checkout.tinyvisualcourses.com">
+        <Link href="https://checkout.tinyvisualcourses.com" onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}>
           Get Started Now
           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Link>

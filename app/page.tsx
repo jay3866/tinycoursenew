@@ -212,9 +212,9 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <Button variant="outline" className="hidden sm:flex" asChild>
-              <Link href="https://members.tinyvisualcourses.com/">Log in</Link>
+              <Link href="https://member.tinyvisualcourses.com/">Log in</Link>
             </Button>
-            <Button asChild className="hidden sm:flex"><Link href="https://checkout.tinyvisualcourses.com">Get Started</Link></Button>
+            <Button asChild className="hidden sm:flex"><Link href="https://checkout.tinyvisualcourses.com" onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}>Get Started</Link></Button>
             
             {/* Mobile Menu Button */}
             <div className="sm:hidden">
@@ -267,10 +267,10 @@ export default function Home() {
             </div>
             <div className="flex flex-col space-y-4 pt-4">
               <Button asChild variant="outline" className="w-full justify-center">
-                <Link href="https://members.tinyvisualcourses.com/" onClick={() => setMobileMenuOpen(false)}>Log in</Link>
+                <Link href="https://member.tinyvisualcourses.com/" onClick={() => setMobileMenuOpen(false)}>Log in</Link>
               </Button>
               <Button asChild className="w-full justify-center">
-                <Link href="https://checkout.tinyvisualcourses.com" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
+                <Link href="https://checkout.tinyvisualcourses.com" onClick={() => { setMobileMenuOpen(false); if (typeof window !== 'undefined' && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}>Get Started</Link>
               </Button>
             </div>
           </div>
@@ -309,7 +309,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-200">
                 <Button size="lg" className="group" asChild>
-                  <Link href="https://checkout.tinyvisualcourses.com">
+                  <Link href="https://checkout.tinyvisualcourses.com" onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}>
                     YES! I WANT MY TINY VISUAL COURSE
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -656,7 +656,7 @@ export default function Home() {
                     <div className="mt-4 relative">
                       <div className="relative z-10">
                         <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-20 py-8 text-xl rounded-xl" asChild>
-                          <Link href="https://checkout.tinyvisualcourses.com">
+                          <Link href="https://checkout.tinyvisualcourses.com" onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}>
                             <span className="px-2">Access Tiny Visual Courses</span>
                             <ArrowRight className="ml-4 h-6 w-6" />
                           </Link>
@@ -1302,7 +1302,7 @@ export default function Home() {
               </p>
               <div className="flex justify-center">
                 <Button size="lg" variant="default" className="group bg-primary hover:bg-primary/90" asChild>
-                  <Link href="https://checkout.tinyvisualcourses.com">
+                  <Link href="https://checkout.tinyvisualcourses.com" onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) (window as any).fbq('track', 'InitiateCheckout'); }}>
                     YES — I'M READY TO ACTIVATE MY VISUAL DEMAND ENGINE
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -1322,7 +1322,7 @@ export default function Home() {
               <Image src="/TVO-icon-5498596.png" alt="Tiny Visual Course Logo" width={24} height={24} className="h-6 w-auto" />
               <span className="text-sm font-medium">Tiny Visual Courses</span>
               <span className="text-slate-400 mx-2">|</span>
-              <Link href="https://members.tinyvisualcourses.com/" className="text-sm hover:text-primary transition-colors">Log in</Link>
+              <Link href="https://member.tinyvisualcourses.com/" className="text-sm hover:text-primary transition-colors">Log in</Link>
             </div>
             
             <div className="text-center text-sm text-slate-700 mb-2">
